@@ -77,6 +77,13 @@ namespace tx2_haui
                 txtMa.Focus();
                 return false;
             }
+            if (dsNhanVien.Any(nv => nv.MaNV == int.Parse(txtMa.Text)))
+            {
+                MessageBox.Show("Mã nhân viên đã tồn tại!", "Lỗi nhập dữ liệu", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtMa.SelectAll();
+                txtMa.Focus();
+                return false;
+            }
             if (txtName.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập tên nhân viên", "Lõi nhập dữ liệu", MessageBoxButton.OK, MessageBoxImage.Error);
